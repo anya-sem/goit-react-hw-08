@@ -5,12 +5,8 @@ import { useId } from 'react';
 import * as Yup from 'yup';
 import css from './LoginForm.module.css';
 
-const initialValues = {
-  email: '',
-  password: '',
-};
 const validationSchema = Yup.object().shape({
-  email: Yup.string().min(13, 'Too short!').max(50, 'Too long!').required('Required!'),
+  email: Yup.string().email('Invalid email').required('Required!'),
   password: Yup.string().min(7, 'Too short!').max(50, 'Too long!').required('Required!'),
 });
 
@@ -25,23 +21,26 @@ export default function RegisterForm() {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={validationSchema}
-      autoComplete="off"
-    >
-      <Form className={css.form}>
-        <p className={css.label}>Email</p>
-        <Field className={css.field} type="email" name="email" id={emailFieldId} />
-        <ErrorMessage className={css.error} name="email" component="span" />
-        <p className={css.label}>Password</p>
-        <Field className={css.field} type="tel" name="password" id={passwordFieldId} />
-        <ErrorMessage className={css.error} name="password" component="span" />
-        <button className={css.button} type="submit">
-          Log In
-        </button>
-      </Form>
-    </Formik>
+    <div>
+      <h1 className={css.title}>Log into account</h1>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+        autoComplete="off"
+      >
+        <Form className={css.form}>
+          <p className={css.label}>Email</p>
+          <Field className={css.field} type="email" name="email" id={emailFieldId} />
+          <ErrorMessage className={css.error} name="email" component="span" />
+          <p className={css.label}>Password</p>
+          <Field className={css.field} type="password" name="password" id={passwordFieldId} />
+          <ErrorMessage className={css.error} name="password" component="span" />
+          <button className={css.button} type="submit">
+            Log In
+          </button>
+        </Form>
+      </Formik>
+    </div>
   );
 }

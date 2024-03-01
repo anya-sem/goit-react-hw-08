@@ -1,14 +1,22 @@
 .container {
-  max-width: 1158px;
-  padding: 0 15px;
+  min-width: 320px;
+  max-width: 428px;
+  padding: 0 10px;
   margin: 0 auto;
-  margin-top: 36px;
 }
-.searchWrap {
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 20px;
+  }
+}
+@media screen and (min-width: 1158px) {
+  .container {
+    max-width: 1158px;
+  }
+}
+/* .searchWrap {
   padding: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   margin: 0 auto;
-}
-.title {
-  margin-bottom: 20px;
-}
+} */

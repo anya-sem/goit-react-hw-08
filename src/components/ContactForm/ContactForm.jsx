@@ -3,7 +3,7 @@ import { useId } from 'react';
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/operations';
+import { addContact } from '../../redux/contacts/operations';
 
 const initialValues = {
   name: '',
@@ -25,22 +25,25 @@ export default function ContactForm() {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={validationSchema}
-    >
-      <Form className={css.form}>
-        <p className={css.label}>Name</p>
-        <Field className={css.field} type="text" name="name" id={nameFieldId} />
-        <ErrorMessage className={css.error} name="name" component="span" />
-        <p className={css.label}>Number</p>
-        <Field className={css.field} type="tel" name="number" id={numberFieldId} />
-        <ErrorMessage className={css.error} name="number" component="span" />
-        <button className={css.button} type="submit">
-          Add contact
-        </button>
-      </Form>
-    </Formik>
+    <div>
+      <h1 className={css.title}>Phonebook</h1>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
+        <Form className={css.form}>
+          <p className={css.label}>Name</p>
+          <Field className={css.field} type="text" name="name" id={nameFieldId} />
+          <ErrorMessage className={css.error} name="name" component="span" />
+          <p className={css.label}>Number</p>
+          <Field className={css.field} type="tel" name="number" id={numberFieldId} />
+          <ErrorMessage className={css.error} name="number" component="span" />
+          <button className={css.button} type="submit">
+            Add contact
+          </button>
+        </Form>
+      </Formik>
+    </div>
   );
 }

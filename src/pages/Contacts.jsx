@@ -1,9 +1,9 @@
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import SearchBox from './SearchBox/SearchBox';
-import Loader from './Loader/Loader';
-import { selectError, selectLoading } from '../redux/selectors';
-import { fetchContacts } from '../redux/operations';
+import ContactForm from '../components/ContactForm/ContactForm';
+import ContactList from '../components/ContactList/ContactList';
+import SearchBox from '../components/SearchBox/SearchBox';
+import Loader from '../components/Loader/Loader';
+import { selectError, selectLoading } from '../redux/contacts/selectors';
+import { fetchContacts } from '../redux/contacts/operations';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -18,16 +18,11 @@ export default function Contacts() {
     dispatch(fetchContacts());
   }, [dispatch]);
   return (
-    <div className={css.container}>
-      <div>
-        <h1 className={css.title}>Phonebook</h1>
-        <ContactForm />
-      </div>
-      <div className={css.searchWrap}>
-        <SearchBox />
-        {loading && !error && <Loader />}
-        <ContactList />
-      </div>
+    <div>
+      <ContactForm />
+      <SearchBox />
+      {loading && !error && <Loader />}
+      <ContactList />
     </div>
   );
 }

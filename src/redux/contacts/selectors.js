@@ -5,6 +5,7 @@ export const selectLoading = state => state.contacts.loading;
 export const selectError = state => state.contacts.error;
 export const selectFilter = state => state.filters.name;
 export const selectEdit = state => state.edit;
+export const selectDeleteConfirmation = state => state.deleteConfirmation;
 
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],

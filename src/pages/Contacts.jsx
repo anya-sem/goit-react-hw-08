@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import EditContactModal from '../components/EditContactModal/EditContactModal';
+import DeleteConfirmationModal from '../components/DeleteConfirmationModal/DeleteConfirmationModal';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export default function Contacts() {
       {loading && !error && <Loader />}
       <ContactList />
       <EditContactModal />
+      <DeleteConfirmationModal />
     </div>
   );
 }

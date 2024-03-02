@@ -21,7 +21,7 @@
 }
 .button {
   border-radius: 8px;
-  border: 1.5px solid transparent;
+  border: 1.5px solid #eee;
   padding: 8px;
   background-color: #fff;
   cursor: pointer;
@@ -29,5 +29,6 @@
   font-size: 16px;
 }
 .button:hover {
-  border: 1.5px solid #eee;
+  border: 1.5px solid #8d59e8;
+  transition: border 0.25s;
 }

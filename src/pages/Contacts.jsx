@@ -6,8 +6,8 @@ import { selectError, selectLoading } from '../redux/contacts/selectors';
 import { fetchContacts } from '../redux/contacts/operations';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import React from 'react';
+import EditContactModal from '../components/EditContactModal/EditContactModal';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ export default function Contacts() {
       <SearchBox />
       {loading && !error && <Loader />}
       <ContactList />
+      <EditContactModal />
     </div>
   );
 }

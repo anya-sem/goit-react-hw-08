@@ -6,11 +6,6 @@ import { selectVisibleContacts } from '../../redux/contacts/selectors';
 
 export default function ContactList() {
   const contacts = useSelector(selectVisibleContacts);
-  // const filter = useSelector(state => state.filters.name.toLowerCase());
-  // const filteredContacts = contacts.filter(contact => {
-  //   return contact.name.toLowerCase().includes(filter);
-  // });
-
   const dispatch = useDispatch();
 
   return (

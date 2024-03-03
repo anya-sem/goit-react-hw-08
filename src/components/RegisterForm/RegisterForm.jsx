@@ -19,13 +19,8 @@ export default function RegisterForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    try {
-      dispatch(register(values));
-      toast.success('Contact added successfully!');
-      resetForm();
-    } catch (error) {
-      toast.error('Error adding contact. Please try again.');
-    }
+    dispatch(register(values));
+    resetForm();
   };
 
   return (

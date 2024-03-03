@@ -3,7 +3,6 @@ import { register } from '../../redux/auth/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
-import toast from 'react-hot-toast';
 import css from './RegisterForm.module.css';
 
 const validationSchema = Yup.object().shape({

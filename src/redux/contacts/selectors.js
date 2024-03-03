@@ -10,6 +10,12 @@ export const selectDeleteConfirmation = state => state.deleteConfirmation;
 export const selectVisibleContacts = createSelector(
   [selectContacts, selectFilter],
   (contacts, filter) => {
-    return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
+    const normalizedFilter = filter.toLowerCase();
+
+    return contacts.filter(
+      ({ name, number }) =>
+        name.toLowerCase().includes(normalizedFilter) ||
+        number.toLowerCase().includes(normalizedFilter)
+    );
   }
 );

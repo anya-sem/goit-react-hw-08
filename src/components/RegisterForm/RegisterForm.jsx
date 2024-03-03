@@ -3,6 +3,7 @@ import { register } from '../../redux/auth/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 import css from './RegisterForm.module.css';
 
 const validationSchema = Yup.object().shape({
@@ -18,8 +19,13 @@ export default function RegisterForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(register(values));
-    resetForm();
+    try {
+      dispatch(register(values));
+      toast.success('Contact added successfully!');
+      resetForm();
+    } catch (error) {
+      toast.error('Error adding contact. Please try again.');
+    }
   };
 
   return (

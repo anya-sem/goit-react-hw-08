@@ -9,7 +9,6 @@ import { useAuth } from '../hooks/useAuth';
 import Loader from './Loader/Loader';
 import Modal from 'react-modal';
 Modal.setAppElement('#root');
-// import { Toaster } from 'react-hot-toast';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -45,7 +44,6 @@ function App() {
           />
         </Route>
       </Routes>
-      {/* <Toaster /> */}
     </>
   );
 }

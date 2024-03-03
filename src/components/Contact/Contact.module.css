@@ -9,7 +9,7 @@
 .wrapper:hover {
   border-color: #8d59e8;
 }
-.titleWrap {
+.infoWrap {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -17,6 +17,11 @@
 }
 .icon {
   margin-right: 8px;
+}
+.info {
+  width: 122px;
+  text-align: left;
+  word-wrap: break-word;
 }
 .buttons {
   display: flex;

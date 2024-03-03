@@ -22,13 +22,13 @@ export default function Contact({ id, name, number }) {
 
   return (
     <div className={css.wrapper}>
-      <div className={css.titleWrap}>
+      <div className={css.infoWrap}>
         <IoIosPerson className={css.icon} />
-        <p className={css.title}>{name}</p>
+        <p className={css.info}>{name}</p>
       </div>
-      <div className={css.titleWrap}>
+      <div className={css.infoWrap}>
         <IoIosCall className={css.icon} />
-        <p className={css.title}>{number}</p>
+        <p className={css.info}>{number}</p>
       </div>
       <div className={css.buttons}>
         <button className={css.button} onClick={openEditModalHandler}>

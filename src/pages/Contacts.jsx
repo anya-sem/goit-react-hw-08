@@ -6,7 +6,6 @@ import { selectError, selectLoading } from '../redux/contacts/selectors';
 import { fetchContacts } from '../redux/contacts/operations';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import React from 'react';
 import EditContactModal from '../components/EditContactModal/EditContactModal';
 import DeleteConfirmationModal from '../components/DeleteConfirmationModal/DeleteConfirmationModal';
 

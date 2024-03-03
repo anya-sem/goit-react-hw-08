@@ -3,13 +3,9 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  padding: 20px 10px;
+  /* padding: 20px 10px; */
 }
-@media screen and (min-width: 768px) {
-  .wrapper {
-    gap: 20px;
-  }
-}
+
 @media screen and (min-width: 1158px) {
   .wrapper {
     gap: 30px;

@@ -2,6 +2,7 @@ import Modal from 'react-modal';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { editContact } from '../../redux/contacts/operations';
 import { selectEdit } from '../../redux/contacts/selectors';
@@ -22,8 +23,13 @@ export default function EditContactModal() {
   const { isOpen, contactId, initialName, initialNumber } = useSelector(selectEdit);
 
   const handleSave = values => {
-    dispatch(editContact({ contactId, newName: values.name, newNumber: values.number }));
-    dispatch(closeEditModal());
+    try {
+      dispatch(editContact({ contactId, newName: values.name, newNumber: values.number }));
+      dispatch(closeEditModal());
+      toast.success('Contact updated successfully!');
+    } catch (error) {
+      toast.error('Error updating contact. Please try again.');
+    }
   };
 
   return (

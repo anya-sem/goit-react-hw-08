@@ -9,6 +9,19 @@ body {
   justify-content: center;
   text-align: center;
   line-height: 1.5;
+  min-width: 320px;
+  padding: 10px 10px;
+}
+@media screen and (min-width: 768px) {
+  body {
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 1158px) {
+  body {
+    max-width: 1158px;
+    padding: 20px 20px;
+  }
 }
 h1,
 h2,
@@ -25,10 +38,4 @@ ol {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
 }

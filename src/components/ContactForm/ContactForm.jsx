@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations';
@@ -22,8 +23,14 @@ export default function ContactForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContact({ ...values }));
-    actions.resetForm();
+    try {
+      dispatch(addContact({ ...values }));
+      toast.success('Contact created successfully!');
+
+      actions.resetForm();
+    } catch (error) {
+      toast.error('Error creating contact. Please try again.');
+    }
   };
 
   return (
